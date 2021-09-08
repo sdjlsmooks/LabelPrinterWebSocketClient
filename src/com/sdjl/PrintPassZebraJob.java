@@ -100,7 +100,7 @@ class PrintPassZebraJob implements Printable {
 			g2.setFont(largeBoldFont);
 			g2.drawString("PASS", 75, 65);
 			g2.setStroke(oldStroke);
-			g2.setFont(oldFont);;
+			g2.setFont(oldFont);
 	    	
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

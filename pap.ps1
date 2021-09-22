@@ -1,0 +1,12 @@
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='Crisis Staff'};ping -t 10.20.23.157"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='Crisis Glass Cube'};ping -t 10.20.23.159"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='AOP - Main Desk'};ping -t 10.20.23.193"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='AOP - Staff Break Room'};ping -t 10.20.23.155"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='Family Center Education Services'};ping -t 10.20.43.162"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='Family Center Discovery Center'};ping -t 10.20.43.163"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='Family Center Clinical Services'};ping -t 10.20.43.127"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='Recovery Center'};ping -t 10.20.60.160"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='Learning Center'};ping -t 10.20.120.161"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='Crestone Hallway'};ping -t 10.20.7.171"
+start-process powershell -argumentlist "-noexit","-command &{`$host.UI.RawUI.WindowTitle='Crestone Main Desk'};ping -t 10.20.7.192"
+

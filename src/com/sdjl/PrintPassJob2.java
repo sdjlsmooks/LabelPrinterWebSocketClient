@@ -36,12 +36,15 @@ class PrintPassJob2 implements Printable {
    }
 
    public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
-      if (page > 1) {
+      if (page >= 1) {
          return 1;
-      } else if (page == 1) {
-         this.printLabel(g, pf);
-         return 0;
-      } else {
+      }
+// Comment out - Going back to print to 1 label per person
+//      else if (page == 1) {
+//         this.printLabel(g, pf); 
+//         return 0;
+//      } 
+      else {
          this.printLabel(g, pf);
          return 0;
       }

@@ -360,45 +360,46 @@ public class WSClient {
 	
 	}
 
-   @OnMessage
-   public void onMessage(String message) {
-      System.out.println("-------------------------------->>>>>>");
-      String timeStamp = (new SimpleDateFormat("MM/dd/yyyy HH:mm:ss")).format(Calendar.getInstance().getTime());
-      System.out.println("Date: " + timeStamp + " Received msg: ");
-      System.out.println(message);
+	@OnMessage
+	public void onMessage(String message) {
+		System.out.println("-------------------------------->>>>>>");
+		String timeStamp = (new SimpleDateFormat("MM/dd/yyyy HH:mm:ss")).format(Calendar.getInstance().getTime());
+		System.out.println("Date: " + timeStamp + " Received msg: ");
+		System.out.println(message);
 
-      try {
-         Object obj = (new JSONParser()).parse(new StringReader(message));
-         System.out.println("START JSON");
-         FileWriter fw  = new FileWriter(new File("c:\\temp\\testjson.json"));
-         JSONObject jo = (JSONObject)obj;
-         insertJSONData(host,jo);
-         System.out.println(message);
-         fw.write(message);
-         fw.close();
-         System.out.println("END JSON");
-         
-         if (jo != null) {
-            JSONObject dataObject = (JSONObject)jo.get("data");
-            if (dataObject != null) {
-               Double temperature = 0.0D;
-               if (dataObject.get("temperature") instanceof Long) {
-                  Long tempLong = (Long)dataObject.get("temperature");
-                  temperature = tempLong.doubleValue();
-               } else {
-                  temperature = (Double)dataObject.get("temperature");
-               }
+		try {
+			Object obj = (new JSONParser()).parse(new StringReader(message));
+			// Not strictly needed here, but useful during debugging.
+			JSONObject jo = (JSONObject) obj;
+//         System.out.println("START JSON");
+//         FileWriter fw  = new FileWriter(new File("c:\\temp\\testjson.json"));
+//         System.out.println(message);
+//         fw.write(message);
+//         fw.close();
+//         System.out.println("END JSON");
 
-               if ((temperature != null) && (temperature >= 96.8D) && (temperature <= 99.5D)) {
-                  this.printPass(jo);
-               }
-            }
-         }
-      } catch (ParseException | IOException var8) {
-         var8.printStackTrace();
-      }
+			if (jo != null) {
+				JSONObject dataObject = (JSONObject) jo.get("data");
+				if (dataObject != null) {
+					Double temperature = 0.0D;
+					if (dataObject.get("temperature") instanceof Long) {
+						Long tempLong = (Long) dataObject.get("temperature");
+						temperature = tempLong.doubleValue();
+					} else {
+						temperature = (Double) dataObject.get("temperature");
+					}
 
-   }
+					if ((temperature != null) && (temperature >= 96.8D) && (temperature <= 99.5D)) {
+						insertJSONData(host, jo);
+						printPass(jo);
+					}
+				}
+			}
+		} catch (ParseException | IOException var8) {
+			var8.printStackTrace();
+		}
+
+	}
 
    private static void wait4TerminateSignal() {
       synchronized(waitLock) {
@@ -411,7 +412,7 @@ public class WSClient {
    }
 
    private void printPass(JSONObject jo) {
-      try {
+      try {    	 
          PrinterJob job = PrinterJob.getPrinterJob();
          PageFormat pf = job.defaultPage();
          Paper paper = pf.getPaper();

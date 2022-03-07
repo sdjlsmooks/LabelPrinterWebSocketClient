@@ -6,7 +6,7 @@
 	<classpathentry kind="lib" path="C:/Users/davidl/personal/jsonsimple/json-simple/target/json-simple-1.1.1-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/davidl/personal/apache/commons-cli-1.4-bin/commons-cli-1.4/commons-cli-1.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/davidl/personal/apache/commons-cli-1.4-bin/commons-cli-1.4/commons-cli-1.4-sources.jar"/>
-	<classpathentry kind="lib" path="H:/projects/TemperatureScanner/tyrus-standalone-client-1.12.jar"/>
-	<classpathentry kind="lib" path="H:/personal/JTDS_MSSQL_SERVER_DRIVER/jtds-1.3.1-dist (1)/jtds-1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/davidl/OneDrive - Health Solutions/projects/TemperatureScanner/tyrus-standalone-client-1.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/davidl/OneDrive - Health Solutions/projects/TemperatureScanner/JTDS_MSSQL_SERVER_DRIVER/jtds-1.3.1-dist (1)/jtds-1.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -391,7 +391,20 @@ public class WSClient {
 
 					if ((temperature != null) && (temperature >= 96.8D) && (temperature <= 99.5D)) {
 						insertJSONData(host, jo);
-						printPass(jo);
+						
+						// Check to see if there is a registered photo in the system.  If there is
+						// a registered photo as well as a daily photo, no need to print a sticker
+						
+						Object photo = jo.get("photo"); // If there is a photo the user has a registered photo.
+						System.out.println("ID Number: "+photo);
+						if ((photo != null) && (photo.toString().trim().length() == 0)) {
+							printPass(jo);
+							System.out.println("GUEST PASS");
+						}
+						else {
+							System.out.println("REGISTERED STAFF PASS - NO STICKER");
+						}
+						
 					}
 				}
 			}
